@@ -28,7 +28,7 @@ run=True
 #ball class
 def create_ball(x,y):
     mass=1
-    radius=6
+    radius=8
     moment=pymunk.moment_for_circle(mass,0,radius)
     body=pymunk.Body(mass,moment)
     body.position=(x,y)

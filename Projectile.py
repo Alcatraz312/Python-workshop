@@ -24,7 +24,7 @@ vertical_velocity = velocity * np.sin(phi)
 x = horizontal_velocity * t     #horizontal position of the projectile at an instant  (x-coordinate array)
 y = vertical_velocity  * t - 0.5*g*t**2    #vertical position of the projectile at an instant   (y-coordinate array)
 
-fig, ax = plt.subplots()     #initializing the fig and 
+fig, ax = plt.subplots()     #initializing the fig 
 line, = ax.plot(x,y, color=random.choice(colour_list))
 
 height_max = max(y)     #max height attained by the projectile
@@ -35,7 +35,7 @@ ax.add_patch(projectile)
 
 def update(n, x, y, line, projectile):        #defining a function to uprgade the position of porjectile at each instant of time
     line.set_data(x[:n],y[:n])           #updating the coordinates of the line object 
-    projectile.center = (x[n],y[n])       #recentering the projectile everytime at every instant of time
+    projectile.center = (x[n],y[n])       #recentering the projectile at every instant of time
     line.axes.axis([0, max(np.append(x,y)), 0, max(np.append(x,y))])   #adjusting the axis of the line's axes to show the the entire trajectory
 
     return line, projectile
