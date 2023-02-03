@@ -24,7 +24,7 @@ vertical_velocity = velocity * np.sin(phi)
 x = horizontal_velocity * t     #horizontal position of the projectile at an instant  (x-coordinate array)
 y = vertical_velocity  * t - 0.5*g*t**2    #vertical position of the projectile at an instant   (y-coordinate array)
 
-fig, ax = plt.subplots()     #initializing the fig 
+fig, ax = plt.subplots()     #initializing the figure and axes objects
 line, = ax.plot(x,y, color=random.choice(colour_list))
 
 height_max = max(y)     #max height attained by the projectile
@@ -45,10 +45,6 @@ animation = animation.FuncAnimation(fig, update, len(x), fargs=(x, y, line, proj
 
 plt.grid()  #grids 
 plt.show()  #show graph
-
-
-
-
 
 
 
