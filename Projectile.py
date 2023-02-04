@@ -2,14 +2,15 @@ import matplotlib.pyplot as plt
 from matplotlib import animation
 import numpy as np
 import random 
+import sys
 
 try:
     velocity = float(input("Enter initial velocity (m/sec) : "))    #input initial velocity
     phi = float(input("Enter the angle of flight (degrees) : "))    #input the angle of flight
 
 except ValueError:
-    print("Invalid input, please enter an integer or decimal value.")
-
+    sys.exit("Invalid input")   
+    
 else:
     phi = np.deg2rad(phi)   #coverting the unit of the angle from degree to radians 
 
@@ -40,11 +41,12 @@ def update(n, x, y, line, projectile):        #defining a function to uprgade th
 
     return line, projectile
 
-animation = animation.FuncAnimation(fig, update, len(x), fargs=(x, y, line, projectile), interval = 20)   #intializing the animation object using the FuncAnimation class
+animation = animation.FuncAnimation(fig, update, frames= len(x), fargs=(x, y, line, projectile), interval = 20)   #intializing the animation object using the FuncAnimation class
 #FuncAnimation takes the figure , the update function, len of the x array , a tuple containing x,y and line and projectile objects as values, and an interval argument that deals with the frames of the animation
 
 plt.grid()  #grids 
-plt.show()  #show graph
+plt.show()#show graph
+
 
 
 
