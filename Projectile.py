@@ -9,7 +9,7 @@ try:
     phi = float(input("Enter the angle of flight (degrees) : "))    #input the angle of flight
 
 except ValueError:
-    sys.exit("Invalid input")   
+    sys.exit("Invalid input")      #if there is a value error, then exit with "Invalid input"
     
 else:
     phi = np.deg2rad(phi)   #coverting the unit of the angle from degree to radians 
