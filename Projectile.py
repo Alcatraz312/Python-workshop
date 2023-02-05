@@ -29,22 +29,21 @@ fig, ax = plt.subplots()     #initializing the figure and axes objects
 line, = ax.plot(x,y, color=random.choice(colour_list))
 
 
-projectile = plt.Circle((0,0), radius = 5)     #initializing the projectile object
+projectile = plt.Circle((0,0), radius = np.sqrt(min(max(x),max(y))))     #initializing the projectile object
 ax.add_patch(projectile)
 
 def update(n, x, y, line, projectile):        #defining a function to uprgade the position of porjectile at each instant of time
     line.set_data(x[:n],y[:n])           #updating the coordinates of the line object 
     projectile.center = (x[n],y[n])       #recentering the projectile at every instant of time
-    line.axes.axis([0, max(np.append(x,y)), 0, max(np.append(x,y))])   #adjusting the axis of the line's axes to show the the entire trajectory
+    line.axes.axis([0, max(np.append(x,y)), 0, max(np.append(x,y))])   #adjusting the axis of the line's axes to show the the entire trajectory, np.append(x,y) concats the x and y array
 
     return line, projectile
 
 animation = animation.FuncAnimation(fig, update,frames= len(x), fargs=(x, y, line, projectile), interval = 20)   #intializing the animation object using the FuncAnimation class
-#FuncAnimation takes the figure , the update function, len of the x array , a tuple containing x,y and line and projectile objects as values, and an interval argument that deals with the frames of the animation
+#FuncAnimation takes the figure , the update function, len of the x array , a tuple containing x,y and line and projectile objects as the arguments of the update function, and an interval argument that deals with the frames of the animation
 
 plt.grid()  #grids 
 plt.show()#show graph
-
 
 
 
