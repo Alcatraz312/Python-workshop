@@ -4,3 +4,5 @@ It contains all the python models and programs for the python workshop.
 
 Stay in touch with us, join our discord:
 <a href = "https://discord.gg/nY8r6Vsb">Illuminati discord </a>
+
+<img src = "C:\Users\ratho\OneDrive\Pictures\Saved Pictures">
