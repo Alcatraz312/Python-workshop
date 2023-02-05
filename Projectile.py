@@ -28,8 +28,6 @@ y = vertical_velocity  * t - 0.5*g*t**2    #vertical position of the projectile 
 fig, ax = plt.subplots()     #initializing the figure and axes objects
 line, = ax.plot(x,y, color=random.choice(colour_list))
 
-height_max = max(y)     #max height attained by the projectile
-range_ = max(x)         #range of the projectile
 
 projectile = plt.Circle((0,0), radius = 5)     #initializing the projectile object
 ax.add_patch(projectile)
@@ -41,7 +39,7 @@ def update(n, x, y, line, projectile):        #defining a function to uprgade th
 
     return line, projectile
 
-animation = animation.FuncAnimation(fig, update, frames= len(x), fargs=(x, y, line, projectile), interval = 20)   #intializing the animation object using the FuncAnimation class
+animation = animation.FuncAnimation(fig, update,frames= len(x), fargs=(x, y, line, projectile), interval = 20)   #intializing the animation object using the FuncAnimation class
 #FuncAnimation takes the figure , the update function, len of the x array , a tuple containing x,y and line and projectile objects as values, and an interval argument that deals with the frames of the animation
 
 plt.grid()  #grids 
